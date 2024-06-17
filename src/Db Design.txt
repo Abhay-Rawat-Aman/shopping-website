@@ -1,0 +1,94 @@
+
+1)Categories
+Category Id
+Name
+Description
+Parent Category Id
+
+
+2)Product
+Product Id
+Category Id
+Name
+Description
+Price
+Stock
+Created At
+Updated At
+
+3)User
+User Id
+First Name
+Last Name
+Email
+Password Hash
+Created At
+
+
+4)Wishlist
+Wishlist Id
+User Id
+Product Id
+Added At =>Time Stamp
+
+5)Cart
+Cart Id
+User Id
+Product Id
+Quantity
+Added At =>Time Stamp
+
+
+6)Customer Rating & Reviews
+Rating Review Id
+Product Id
+User Id
+Rating
+Review
+Created At
+
+7)Order
+Order Id
+User Id
+Order Date
+Status
+Total Amount
+
+8)Order Items
+Order Item Id
+Order Id
+Product Id
+Quantity
+Price
+
+9)Payment
+Payment Id
+Order Id
+Payment Method
+Transaction ID
+Payment Date
+Status
+
+
+
+10)Shipping
+Shipment Id
+Order Id
+Address 
+City
+State
+Postal Code
+Country
+Shipment Date
+Expected Date
+Delivery Date
+Status
+
+
+
+
+
+
+
+
+
