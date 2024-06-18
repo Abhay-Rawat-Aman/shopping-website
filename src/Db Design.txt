@@ -1,36 +1,43 @@
 
 1)Categories
-Category Id => Primary Key Int 
+Category Id => Primary Key Store procedure =>Start with 'C'
 Name
 Description
 Parent Category Id =>reference of Category table
 
+3)Brand
+Brand Id =>Primary key Store Proceduer => Start with 'B'
+Brand Name
+Description
+
 
 2)Product
-Product Id => Used as Store procedure
-Category Id =>Refence of Category table
+Product Id => Used as Store procedure => Start with 'P'
+Category Id =>Refence of Category table =>reference of Category table
+Brand Id =>Refence of Brand table =>reference of brand table
 Name
 Description
 Price
+Product Main Image 
 Created At
 Updated At
 
 
 3)Variation Type table
-Variation Type Id
+Variation Type Id =>primary key int
 Variation Type 
     eg: 1.Color, 2.Size,3.Material
 
 
 4)Variation Value
-Variation Value Id
+Variation Value Id => primary key int
 Variation Type Id
 Variation Value
     eg 1.(1,Red), 2.(1,Blue), 3.(2,M), 4.(2,L), 5.(3.Cotton), 6.(3,Polyester)
 
 
 5)Product Variation 
-Product Variation Id
+Product Variation Id =>Primary key 
 Product Id
 Additional Price
 Stock
@@ -48,7 +55,7 @@ Udated At
 
 
 6)Product Variation Details
-Product Variation Details Id
+Product Variation Details Id =>Primary key
 Product Variation Id
 Variation Value Id
     eg:
@@ -62,74 +69,91 @@ Variation Value Id
         (8, 2), (8, 4), (8, 6);  -- Blue, L, Polyester
 
 
-7)Product Highlights 
-Product Highlights Id
+7)Product Images 
+Product Image Id => Primary key  int 
+Product Variation Id
+Image URl
+
+8)Product Highlights 
+Product Highlights Id =>Primary key int
 Product Id
 Product Highlights Value
 
-8)Product Specification 
-Product Specification Id
+9)Product Specification 
+Product Specification Id =>Primary key int 
 Product Id
 Product Specification Heading
     eg:
         1.Camera, 2.Processor
 
-9)Product Specification Description
-Proudct Specification Description Id
+10)Product Specification Description
+Proudct Specification Description Id =>Primary key int 
 Product Specification Id
 Product Specification Key
 Product Specification Value
     eg (1,Fornt Camera,32 MP), (1, Back Camera, 64MP)
 
 
+11)Offers 
+Offer Id =>Primary key Store procedure =>start with 'OF'
+Product Id
+Category Id
+Brand Id
+Offer Description
+Start Date
+End Date 
+Discount Percentage
 
-10)User
-User Id
+11)User
+User Id =>primary key Store procedure =>start with 'U'
 First Name
 Last Name
 Email
 Password Hash
 Created At
+Address Id
+Image of User
 
 
-11)Wishlist
-Wishlist Id
+
+12)Wishlist
+Wishlist Id => Primary key int 
 User Id
 Product Id
 Added At =>Time Stamp
 
-12)Cart
-Cart Id
+13)Cart
+Cart Id =>primary key int
 User Id
 Product Id
 Quantity
 Added At =>Time Stamp
 
 
-13)Customer Rating & Reviews
-Rating Review Id
+14)Customer Rating & Reviews
+Rating Review Id =>Primary key int 
 Product Id
 User Id
 Rating
 Review
 Created At
 
-14)Order
-Order Id
+15)Order
+Order Id => Primary key Store Proceduer => Start with 'O'
 User Id
 Order Date
 Status
 Total Amount
 
-15)Order Items
-Order Item Id
+16)Order Items
+Order Item Id =>primary key int 
 Order Id
 Product Id
 Quantity
 Price
 
-16)Payment
-Payment Id
+17)Payment
+Payment Id => primary key Store Proceduer =>start with 'PA'
 Order Id
 Payment Method
 Transaction ID
@@ -138,24 +162,68 @@ Status
 
 
 
-17)Shipping
-Shipment Id
+18)Shipping
+Shipment Id =>Primary key Store Proceduer =>start with 'S'
 Order Id
-Address 
-City
-State
-Postal Code
-Country
+Address Id
 Shipment Date
 Expected Date
 Delivery Date
 Status
 
+19)Address Data
+Address Id 
+Address 
+City
+State
+Postal Code
+Country
 
 
 
+Microservices 
+1)Category Microservices
+    Category
+
+2)Brand Microservices
+    Brand
+
+3)Product Microservices
+    Product
+    ProductVariation
+    ProductVariationDetails
+    ProductImages
+    ProductHighlights
+    ProductSpecification
+    ProductSpecificationDescription
+
+4)User Microservices
+    User
+
+5)Order Microservices
+    Order
+    OrderItems
+    Payment
+    Shipping
+    Address 
+
+6)Offer
+    Offer
+
+7)Cart & Wishlist 
+    Cart
+    Wishlist
+
+8)Rating and Review
+    Rating and Reviews
 
 
+Redux Store
+Products 
+Cart
+User
+Orders
+Wishlist
 
 
 
