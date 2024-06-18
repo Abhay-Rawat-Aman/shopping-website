@@ -1,22 +1,89 @@
 
 1)Categories
-Category Id
+Category Id => Primary Key Int 
 Name
 Description
-Parent Category Id
+Parent Category Id =>reference of Category table
 
 
 2)Product
-Product Id
-Category Id
+Product Id => Used as Store procedure
+Category Id =>Refence of Category table
 Name
 Description
 Price
-Stock
 Created At
 Updated At
 
-3)User
+
+3)Variation Type table
+Variation Type Id
+Variation Type 
+    eg: 1.Color, 2.Size,3.Material
+
+
+4)Variation Value
+Variation Value Id
+Variation Type Id
+Variation Value
+    eg 1.(1,Red), 2.(1,Blue), 3.(2,M), 4.(2,L), 5.(3.Cotton), 6.(3,Polyester)
+
+
+5)Product Variation 
+Product Variation Id
+Product Id
+Additional Price
+Stock
+Created At
+Udated At
+    eg:
+        (1, 0.00, 30, NOW(), NOW()),  -- Variation 1
+        (1, 0.00, 20, NOW(), NOW()),  -- Variation 2
+        (1, 0.00, 40, NOW(), NOW()),  -- Variation 3
+        (1, 0.00, 30, NOW(), NOW()),  -- Variation 4
+        (2, 0.00, 25, NOW(), NOW()),  -- Variation 5
+        (2, 0.00, 25, NOW(), NOW()),  -- Variation 6
+        (2, 0.00, 20, NOW(), NOW()),  -- Variation 7
+        (2, 0.00, 30, NOW(), NOW());  -- Variation 8
+
+
+6)Product Variation Details
+Product Variation Details Id
+Product Variation Id
+Variation Value Id
+    eg:
+        (1, 1), (1, 3), (1, 5),  -- Red, M, Cotton
+        (2, 1), (2, 4), (2, 5),  -- Red, L, Cotton
+        (3, 2), (3, 3), (3, 6),  -- Blue, M, Polyester
+        (4, 2), (4, 4), (4, 6),  -- Blue, L, Polyester
+        (5, 1), (5, 3), (5, 5),  -- Red, M, Cotton
+        (6, 1), (6, 4), (6, 5),  -- Red, L, Cotton
+        (7, 2), (7, 3), (7, 6),  -- Blue, M, Polyester
+        (8, 2), (8, 4), (8, 6);  -- Blue, L, Polyester
+
+
+7)Product Highlights 
+Product Highlights Id
+Product Id
+Product Highlights Value
+
+8)Product Specification 
+Product Specification Id
+Product Id
+Product Specification Heading
+    eg:
+        1.Camera, 2.Processor
+
+9)Product Specification Description
+Proudct Specification Description Id
+Product Specification Id
+Product Specification Key
+Product Specification Value
+    eg (1,Fornt Camera,32 MP), (1, Back Camera, 64MP)
+
+
+
+10)User
 User Id
 First Name
 Last Name
@@ -25,13 +92,13 @@ Password Hash
 Created At
 
 
-4)Wishlist
+11)Wishlist
 Wishlist Id
 User Id
 Product Id
 Added At =>Time Stamp
 
-5)Cart
+12)Cart
 Cart Id
 User Id
 Product Id
@@ -39,7 +106,7 @@ Quantity
 Added At =>Time Stamp
 
 
-6)Customer Rating & Reviews
+13)Customer Rating & Reviews
 Rating Review Id
 Product Id
 User Id
@@ -47,21 +114,21 @@ Rating
 Review
 Created At
 
-7)Order
+14)Order
 Order Id
 User Id
 Order Date
 Status
 Total Amount
 
-8)Order Items
+15)Order Items
 Order Item Id
 Order Id
 Product Id
 Quantity
 Price
 
-9)Payment
+16)Payment
 Payment Id
 Order Id
 Payment Method
@@ -71,7 +138,7 @@ Status
 
 
 
-10)Shipping
+17)Shipping
 Shipment Id
 Order Id
 Address 
