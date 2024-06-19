@@ -229,6 +229,7 @@ Wishlist
 Frontend Admin Design
 https://midone-react.vercel.app/regular-table
 https://midone-react.vercel.app/calendar
+https://midone-react.vercel.app/?theme=icewall
 
 
 Frontend Basic Design
